@@ -64,7 +64,7 @@ app.delete("/deleteUser/:id", (req, res) => {
   // }
 
   // userArr.splice(elemIndex, 1);
-
+  // This comment is for git
   const filteredArr = userArr.filter((elem) => elem.id != id);
   if (filteredArr.length === userArr.length) {
     return res.json({ message: "No user found with the id passed" });
@@ -72,7 +72,9 @@ app.delete("/deleteUser/:id", (req, res) => {
 
   userArr = filteredArr;
 
-  return res.json({ message: "User Deleted Successfully" });
+  return res.json(
+    { message: "User Deleted Successfully" }
+    );
 });
 
 app.put("/updateUser/:id", (req, res) => {
