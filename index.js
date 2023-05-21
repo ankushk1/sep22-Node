@@ -2,6 +2,7 @@ const express = require("express"); // returns a express function
 const app = express(); // invoking the express
 const port = 8000;
 const bodyParser = require("body-parser");
+const mongoose = require("./config/mongoose")
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
