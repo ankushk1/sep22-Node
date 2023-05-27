@@ -3,9 +3,13 @@ const app = express(); // invoking the express
 const port = 8000;
 const bodyParser = require("body-parser");
 const mongoose = require("./config/mongoose")
+const userRoutes = require("./routes/userRoutes");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+
+
+app.use("/user", userRoutes) 
 
 // app.get("/", (req, res) => {
 //   res.send("<p>Nodejs server running with nodemon</p>");
