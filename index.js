@@ -4,12 +4,14 @@ const port = 8000;
 const bodyParser = require("body-parser");
 const mongoose = require("./config/mongoose")
 const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 
 app.use("/user", userRoutes) 
+app.use("/product", productRoutes) 
 
 // app.get("/", (req, res) => {
 //   res.send("<p>Nodejs server running with nodemon</p>");

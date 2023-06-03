@@ -3,19 +3,13 @@ const router = express.Router();
 
 // console.log('routes File initialized')
 const { signup, signin } = require("../controller/userController");
-
-const validate = (req, res, next) => {
-  console.log('validate called')
-
-  // No errors and we can move to controller
-  // next();
-}
+const { validateJWT } = require("../jwt/jwt");
 
 router.post("/signup", signup);
 router.post("/signin", signin)
 
 
-router.get('/test', validate ,(req, res) => {
+router.get('/test', validateJWT ,(req, res) => {
   console.log('controller called')
 })
 

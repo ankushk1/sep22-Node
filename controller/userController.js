@@ -76,7 +76,7 @@ exports.signin = async (req, res) => {
     }
 
     const token = jwt.sign({ firstName, _id, role }, "secret", {
-      expiresIn: "12h"
+      expiresIn: "2h"
     });
 
     return res.status(200).json({ token, message: "Signin success" });
