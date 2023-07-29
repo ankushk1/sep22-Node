@@ -5,13 +5,18 @@ const bodyParser = require("body-parser");
 const mongoose = require("./config/mongoose")
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
+const cors = require("cors")
 
+app.use(cors({
+  origin: "http://localhost:3000"
+}))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
 
 app.use("/user", userRoutes) 
 app.use("/product", productRoutes) 
+
 
 // app.get("/", (req, res) => {
 //   res.send("<p>Nodejs server running with nodemon</p>");

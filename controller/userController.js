@@ -62,12 +62,13 @@ exports.signin = async (req, res) => {
 
     const { email, password } = req.body;
     const userExists = await User.findOne({ email });
-    const { firstName, _id, role } = userExists;
     if (!userExists) {
       return res
         .status(400)
-        .json({ message: "User doesnot exist, Please Signup first" });
+        .json({ message: "User does not exist, Please Signup first" });
     }
+
+    const { firstName, _id, role } = userExists;
 
     // Verify the password
     const isPasswordCorrect = bcrypt.compareSync(password, userExists.password);
